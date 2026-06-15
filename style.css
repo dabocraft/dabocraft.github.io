@@ -1,0 +1,570 @@
+/* ==========================================================================
+   1. VARIABLES Y ESTILOS GLOBALES (Tema Oscuro IDE)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f0f11;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Sistema de soporte bilingüe */
+body.lang-es .en { display: none !important; }
+body.lang-en .es { display: none !important; }
+
+/* Código y Monospace */
+code, pre, .terminal-box, .code-block, .prompt {
+    font-family: 'Consolas', 'Fira Code', 'Courier New', monospace;
+}
+
+/* Colores de texto comunes */
+.text-emerald { color: #10b981; }
+.text-blue { color: #3b82f6; }
+.text-purple { color: #a855f7; }
+.text-amber { color: #f59e0b; }
+.text-red { color: #ef4444; }
+
+/* ==========================================================================
+   2. ESTRUCTURA PRINCIPAL DEL IDE
+   ========================================================================== */
+.ide-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 85vh;
+    background-color: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+/* Barra Superior */
+.ide-header {
+    background-color: #252526;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    border-bottom: 1px solid #2d2d2d;
+    user-select: none;
+}
+
+.window-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.window-buttons .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.window-buttons .close { background-color: #ff5f56; }
+.window-buttons .minimize { background-color: #ffbd2e; }
+.window-buttons .maximize { background-color: #27c93f; }
+
+.window-title {
+    font-size: 13px;
+    color: #969696;
+}
+
+.lang-btn {
+    background: #2d2d2d;
+    border: 1px solid #404040;
+    color: #ccffdd;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.lang-btn:hover { background: #3c3c3c; }
+
+/* Cuerpo del IDE */
+.ide-body {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Explorador Lateral */
+.sidebar {
+    width: 240px;
+    background-color: #181818;
+    border-right: 1px solid #2d2d2d;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+}
+
+.sidebar-title {
+    font-size: 11px;
+    font-weight: bold;
+    color: #6e6e6e;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.file-list {
+    list-style: none;
+}
+
+.file-item {
+    padding: 8px 15px;
+    font-size: 13px;
+    color: #b3b3b3;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.file-item:hover { background-color: #2a2a2a; color: #ffffff; }
+.file-item.active { background-color: #37373d; color: #ffffff; border-left: 2px solid #10b981; }
+
+/* Área de Contenido */
+.content-area {
+    flex: 1;
+    background-color: #1e1e1e;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #2d2d2d;
+    padding-bottom: 10px;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   3. ESTILOS DE COMPONENTES DE PESTAÑAS (Perfil, Proyectos, Contacto)
+   ========================================================================== */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.profile-header .avatar {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid #10b981;
+}
+
+.profile-header .subtitle {
+    color: #858585;
+    font-size: 14px;
+}
+
+.code-block {
+    background-color: #141414;
+    border: 1px solid #2d2d2d;
+    border-radius: 6px;
+    padding: 15px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.code-block p { margin-bottom: 12px; }
+.code-block .comment { color: #6a9955; }
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skill-tag {
+    background: #252526;
+    border: 1px solid #333333;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #a7f3d0;
+}
+
+/* Tarjetas de Proyectos */
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-card {
+    background: #141414;
+    border: 1px solid #2d2d2d;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.project-banner {
+    padding: 8px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.bg-inmortal { background-color: #065f46; }
+.bg-local { background-color: #1e3a8a; }
+.bg-retired-card { background-color: #3f3f46; }
+.bg-tamajo { background-color: #7c2d12; }
+.bg-qa { background-color: #581c87; }
+
+.project-info { padding: 15px; }
+.project-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.badge {
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.active-badge { background: #10b981; color: #000; }
+.local-badge { background: #3b82f6; color: #fff; }
+.retired-badge { background: #ef4444; color: #fff; }
+.legacy-badge { background: #4b5563; color: #fff; }
+
+.project-footer { margin-top: 15px; padding-top: 10px; border-top: 1px solid #2d2d2d; font-size: 12px; color: #10b981; }
+
+/* Widgets */
+.widgets-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+@media (max-width: 768px) { .widgets-container { grid-template-columns: 1fr; } }
+
+/* Contacto y Avisos */
+.contact-list { display: flex; flex-direction: column; gap: 15px; }
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #141414;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid #2d2d2d;
+    color: #e0e0e0;
+    text-decoration: none;
+}
+.contact-item:hover { border-color: #10b981; background: #181818; }
+
+.contact-card-item { background: #141414; border: 1px solid #2d2d2d; border-radius: 6px; padding: 20px; display: flex; gap: 15px; }
+.contact-icon-wrapper { font-size: 24px; color: #10b981; }
+.tag-alert { font-size: 11px; color: #f59e0b; font-weight: bold; display: block; margin-bottom: 5px; }
+
+.warning-box {
+    margin-top: 20px;
+    background: rgba(245, 158, 11, 0.05);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    padding: 15px;
+    border-radius: 6px;
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.warning-box a { color: #38bdf8; text-decoration: none; }
+
+/* ==========================================================================
+   4. SISTEMA DE CONSOLA BASH (Terminal)
+   ========================================================================== */
+.terminal-box {
+    background-color: #0a0a0c;
+    border: 1px solid #2d2d2d;
+    border-radius: 6px;
+    padding: 15px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-output {
+    flex: 1;
+    overflow-y: auto;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.terminal-quick-tags {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.terminal-quick-tags span {
+    background: #1e1e24;
+    border: 1px solid #3f3f46;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    color: #a7f3d0;
+}
+.terminal-quick-tags span:hover { background: #272730; }
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-top: 1px solid #2d2d2d;
+    padding-top: 10px;
+}
+
+.prompt { color: #38bdf8; font-size: 13px; white-space: nowrap; }
+.prompt #terminalPath { color: #a855f7; }
+
+#terminalInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: monospace;
+    font-size: 13px;
+    outline: none;
+}
+
+/* ==========================================================================
+   5. BARRA INFERIOR DEL IDE
+   ========================================================================== */
+.ide-footer {
+    background-color: #007acc;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    font-size: 11px;
+    color: #ffffff;
+    user-select: none;
+}
+
+.ide-footer .footer-left, .ide-footer .footer-right {
+    display: flex;
+    gap: 15px;
+}
+
+.ide-footer i { margin-right: 3px; }
+
+.footer-center {
+    width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.scroll-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 12s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+/* ==========================================================================
+   6. ESTILOS DE LA HERRAMIENTA DE CONSULTA DE MINECRAFT (Tu sección anterior)
+   ========================================================================== */
+#tools .tool-container {
+    max-width: 700px;
+    margin: 20px 0;
+}
+
+#tools .tool-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#tools .tool-input-group input {
+    flex: 1;
+    background: #141414;
+    border: 1px solid #2d2d2d;
+    color: #ffffff;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+#tools .tool-input-group input:focus {
+    outline: none;
+    border-color: #007acc;
+}
+
+#tools .tool-input-group button {
+    background: #007acc;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+#tools .tool-input-group button:hover {
+    background: #0062a3;
+}
+
+.api-result-card {
+    background: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    border-radius: 6px;
+    padding: 25px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.api-result-card.idle-status { border-left: 4px solid #5a5a5a; }
+.api-result-card.loading-status { border-left: 4px solid #007acc; }
+.api-result-card.online-status { border-left: 4px solid #4caf50; }
+.api-result-card.offline-status { border-left: 4px solid #f44336; }
+
+.result-placeholder, .spinner-telemetry {
+    text-align: center;
+    color: #7a7a7a;
+}
+
+.result-placeholder i {
+    font-size: 40px;
+    margin-bottom: 12px;
+    color: #3e3e3e;
+}
+
+.spinner-telemetry i {
+    font-size: 35px;
+    color: #007acc;
+    margin-bottom: 12px;
+}
+
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #2d2d2d;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.result-header h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.status-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-badge.online {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.status-badge.offline {
+    background: rgba(244, 67, 54, 0.15);
+    color: #f44336;
+    border: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.result-row {
+    background: #141414;
+    padding: 10px 14px;
+    border-radius: 4px;
+    border: 1px solid #252525;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.result-row strong { color: #7a7a7a; }
+.result-row span { color: #e0e0e0; }
+
+.result-motd {
+    background: #141414;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #252525;
+    font-size: 13px;
+}
+
+.result-motd strong {
+    color: #7a7a7a;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.motd-clean {
+    color: #aaccff;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.error-msg {
+    color: #ef4444;
+    margin: 10px 0 0 0;
+    font-size: 14px;
+}
+
+.hidden {
+    display: none !important;
+}

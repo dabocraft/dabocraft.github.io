@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaBoCraft | Enterprise Systems Workspace</title>
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/YuriSchimke/minecraft-gems/master/gem-emerald.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="lang-es">
+
+    <div class="ide-container">
+        <div class="ide-header">
+            <div class="window-buttons">
+                <span class="dot close"></span>
+                <span class="dot minimize"></span>
+                <span class="dot maximize"></span>
+            </div>
+            <div class="window-title">dabocraft@sysadmin-workspace: ~/portfolio</div>
+            
+            <div class="header-actions">
+                <button class="lang-btn" onclick="toggleLanguage()">
+                    <i class="fa-solid fa-language"></i> 
+                    <span class="es">English</span>
+                    <span class="en">Español</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="ide-body">
+            <aside class="sidebar">
+                <div class="sidebar-title">EXPLORER: PROJECT_ROOT</div>
+                <ul class="file-list">
+                    <li class="file-item active" id="tab-about" onclick="switchTab('about')">
+                        <i class="fa-solid fa-user-gear text-emerald"></i> profile.md
+                    </li>
+                    <li class="file-item" id="tab-projects-mc" onclick="switchTab('projects-mc')">
+                        <i class="fa-solid fa-cube text-blue"></i> minecraft_infra.json
+                    </li>
+                    <li class="file-item" id="tab-projects-dc" onclick="switchTab('projects-dc')">
+                        <i class="fa-brands fa-discord text-purple"></i> discord_systems.json
+                    </li>
+                    <li class="file-item" id="tab-dc-widgets" onclick="switchTab('dc-widgets')">
+                        <i class="fa-solid fa-window-restore text-amber"></i> discord_widgets.html
+                    </li>
+                    <li class="file-item" id="tab-tools" onclick="switchTab('tools')">
+                        <i class="fa-solid fa-network-wired text-red"></i> server_lookup.json
+                    </li>
+                    <li class="file-item" id="tab-terminal" onclick="switchTab('terminal')">
+                        <i class="fa-solid fa-terminal text-emerald"></i> interactive_shell.sh
+                    </li>
+                    <li class="file-item" id="tab-contact" onclick="switchTab('contact')">
+                        <i class="fa-solid fa-envelope-shield text-emerald"></i> contact_info.url
+                    </li>
+                </ul>
+            </aside>
+
+            <main class="content-area">
+                
+                <section id="about" class="tab-content active">
+                    <div class="profile-header">
+                        <img src="https://cdn.ysn.lol/avatars/881/1779995084193-zc2pbw.png" alt="DaBoCraft" class="avatar">
+                        <div>
+                            <h2>DaBoCraft</h2>
+                            <p class="subtitle">Systems Configurator & Infrastructure Architect</p>
+                        </div>
+                    </div>
+                    
+                    <div class="code-block">
+                        <p class="comment es"># Resumen del Sistema Operativo Personal</p>
+                        <p class="comment en"># Personal Core System Summary</p>
+                        
+                        <p class="es">Configurador e integrador enfocado en entornos de alto rendimiento para servidores de Minecraft Java y ecosistemas avanzados de Discord. Especializado en el tuning interno de archivos de configuración, mitigación estructural de lag y despliegues modulares estructurados.</p>
+                        <p class="en">Configurator and integrator focused on high-performance environments for Minecraft Java servers and advanced Discord ecosystems. Specialized in internal tuning of configuration files, structural lag mitigation, and structured modular deployments.</p>
+                        
+                        <p class="comment es">## Stack de Gestión de Automatización y Sistemas</p>
+                        <p class="comment en">## Automation & Systems Management Stack</p>
+                        <p class="es">Alta experiencia estructurando arquitecturas comunitarias masivas en Discord utilizando frameworks de moderación avanzados (<strong>Dyno, Carl-bot, Koya</strong>) combinados con la integración de bots personalizados *vibecodeados* en Node.js.</p>
+                        <p class="en">Extensive experience structuring massive community architectures on Discord using advanced moderation frameworks (<strong>Dyno, Carl-bot, Koya</strong>) combined with custom *vibecoded* Node.js bot integrations.</p>
+
+                        <p class="comment es">## Pipeline de Desarrollo Actual</p>
+                        <p class="comment en">## Current Development Pipeline</p>
+                        <p class="es"><i class="fa-brands fa-python text-emerald"></i> <strong>Python Layer:</strong> Aprendiendo e implementando scripts base orientados a la automatización de tareas en servidores locales, análisis sintáctico de logs repetitivos y automatización de backups distribuidos.</p>
+                        <p class="en"><i class="fa-brands fa-python text-emerald"></i> <strong>Python Layer:</strong> Learning and implementing base scripts oriented towards local task automation, parsing repetitive server logs, and automated distributed backup tasks.</p>
+
+                        <div class="skills-grid">
+                            <span class="skill-tag"><i class="fa-solid fa-feather"></i> PaperMC Core Tuning</span>
+                            <span class="skill-tag"><i class="fa-solid fa-bolt"></i> Velocity High-Availability Proxy</span>
+                            <span class="skill-tag"><i class="fa-solid fa-key"></i> LuckPerms Advanced Matrix (SQL)</span>
+                            <span class="skill-tag"><i class="fa-brands fa-discord"></i> Discord Enterprise Rigging</span>
+                            <span class="skill-tag"><i class="fa-brands fa-linux"></i> Linux Home-Labs / Crafty Admin</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="projects-mc" class="tab-content">
+                    <h2 class="es"><i class="fa-solid fa-cube"></i> Infraestructura de Minecraft Dedicada</h2>
+                    <h2 class="en"><i class="fa-solid fa-cube"></i> Dedicated Minecraft Infrastructure</h2>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-banner bg-inmortal">
+                                <span><i class="fa-solid fa-network-wired"></i> PRODUCTION PROXIED NETWORK</span>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-title-row">
+                                    <h3>InmortalCraft Network</h3>
+                                    <span class="badge active-badge">Head Manager</span>
+                                </div>
+                                <p class="es">Administración total de la topología de red. Enrutamiento inteligente de instancias mediante balanceo en el proxy <strong>Velocity</strong>, auditorías masivas de permisos relacionales mediante almacenamiento SQL en <strong>LuckPerms</strong> y optimización del ciclo de ticks por segundo (TPS) nativo en entornos <strong>PaperMC</strong>.</p>
+                                <p class="en">Total administration of the network topology. Intelligent instance routing via <strong>Velocity proxy</strong> load balancing, massive relational permission audits via SQL data storage on <strong>LuckPerms</strong>, and native ticks-per-second (TPS) cycle optimization on <strong>PaperMC</strong> systems.</p>
+                                <div class="project-footer">
+                                    <span class="ip-tag"><i class="fa-solid fa-wifi"></i> Node IP: inmortalcraft.lat</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-banner bg-local">
+                                <span><i class="fa-solid fa-microchip"></i> STAGING HOME LAB</span>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-title-row">
+                                    <h3 class="es">Servidor Remoto Local de Testing</h3>
+                                    <h3 class="en">Local Remote Testing Cluster</h3>
+                                    <span class="badge local-badge">SysAdmin</span>
+                                </div>
+                                <p class="es">Entorno físico aislado montado sobre arquitectura Linux. Gestión y orquestación web mediante <strong>Crafty Controller</strong> para el despliegue automático de servidores espejo de pruebas, aislamiento de exploits de plugins de terceros y debug de hilos pesados antes del despliegue en producción.</p>
+                                <p class="en">Isolated physical environment built on Linux architecture. Web management and orchestration powered by <strong>Crafty Controller</strong> for automated deployments of mirror staging servers, third-party plugin exploit mitigation, and heavy thread debugging before live deployment.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-banner bg-retired-card">
+                                <span><i class="fa-solid fa-archive"></i> ARCHIVED HISTORIC SYSTEM</span>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-title-row">
+                                    <h3>DiosesMC</h3>
+                                    <div>
+                                        <span class="badge retired-badge es">Retirado</span>
+                                        <span class="badge retired-badge en">Retired</span>
+                                        <span class="badge legacy-badge">Helper / Moderation</span>
+                                    </div>
+                                </div>
+                                <p class="es">Soporte técnico operacional y mitigación de incidencias críticas en caliente en uno de los servidores más masivos del ecosistema hispano fundado por Willyrex y Vegetta777, operando de forma estable bajo picos de carga superiores a los 1,500 usuarios simultáneos en red.</p>
+                                <p class="en">Operational technical support and hot critical issue mitigation on one of the largest networks in the Hispanic community founded by Willyrex and Vegetta777, managing infrastructure stability during concurrent peaks of over 1,500 real-time active users.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="projects-dc" class="tab-content">
+                    <h2 class="es"><i class="fa-brands fa-discord"></i> Ingeniería de Sistemas en Discord</h2>
+                    <h2 class="en"><i class="fa-brands fa-discord"></i> Discord Systems Engineering</h2>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-banner bg-tamajo">
+                                <span><i class="fa-solid fa-users-gear"></i> PRODUCTION COMMUNITY ARCHITECTURE</span>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-title-row">
+                                    <h3>ByTamajo's Community</h3>
+                                    <span class="badge active-badge">Head Staff & Configurator</span>
+                                </div>
+                                <p class="es">Estructuración íntegra y lógica del backend del servidor de Discord de la comunidad ByTamajo. Limpieza radical de árboles jerárquicos de roles, blindaje de canales contra ataques coordinados webhooks maliciosos y enrutamiento automatizado de logs operativos para moderadores.</p>
+                                <p class="en">Full backend structural design and logical mapping for content creator ByTamajo's community Discord server. Radical optimization of role trees, system shielding against coordinated malicious webhook entry vectors, and automated routing of operational logging systems.</p>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-banner bg-qa">
+                                <span><i class="fa-solid fa-bug"></i> METRICS & QUALITY ASSURANCE</span>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-title-row">
+                                    <h3>Kilo's QA Team</h3>
+                                    <span class="badge active-badge">QA Director</span>
+                                </div>
+                                <p class="es">Dirección y control de calidad exhaustivo en entornos aislados de prueba de Discord. Orquestación de auditorías manuales y automatizadas de permisos, reporte analítico avanzado de errores latentes y debugging de llamadas lógicas antes del lanzamiento público de parches comunitarios.</p>
+                                <p class="en">Comprehensive quality control management inside isolated testing environments on Discord. Orchestration of manual and automated permission audits, advanced logging analysis for hidden operational exceptions, and permission logical execution debugging before rolling public patches.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="dc-widgets" class="tab-content">
+                    <h2 class="es"><i class="fa-solid fa-window-restore"></i> Monitores de Servidores Activos</h2>
+                    <h2 class="en"><i class="fa-solid fa-window-restore"></i> Live Server Monitors</h2>
+                    <p class="comment es">// Carga en tiempo real del estado de sockets e invitaciones nativas</p>
+                    <p class="comment en">// Real-time socket and native invite stream status</p>
+                    
+                    <div class="widgets-container">
+                        <div class="widget-item">
+                            <h4 class="comment"># Live Endpoint: ByTamajo Network</h4>
+                            <iframe src="https://discord.com/widget?id=1250139267066494987&theme=dark" width="100%" height="420" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                        </div>
+                        <div class="widget-item">
+                            <h4 class="comment"># Live Endpoint: InmortalCraft Core</h4>
+                            <iframe src="https://discord.com/widget?id=1434997940769919159&theme=dark" width="100%" height="420" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tools" class="tab-content">
+                    <h2 class="es"><i class="fa-solid fa-network-wired"></i> Utilidad de Diagnóstico de Red Minecraft</h2>
+                    <h2 class="en"><i class="fa-solid fa-network-wired"></i> Real-Time Minecraft Server Status Utility</h2>
+                    <p class="comment es">// Herramienta real en tiempo real que consulta sockets mediante API externa</p>
+                    <p class="comment en">// Live query tool processing packets via external public API</p>
+                    
+                    <div class="tool-container">
+                        <div class="tool-input-group">
+                            <input type="text" id="server-ip" value="inmortalcraft.lat" placeholder="ej. mc.hypixel.net o inmortalcraft.lat">
+                            <button id="btn-check">
+                                <i class="fas fa-search"></i> 
+                                <span class="es">Consultar</span><span class="en">Query</span>
+                            </button>
+                        </div>
+
+                        <div id="result-card" class="api-result-card idle-status">
+                            
+                            <div id="state-idle" class="result-placeholder">
+                                <i class="fas fa-server"></i>
+                                <p class="es">Introduce la dirección IP de un servidor de Minecraft para verificar su estado.</p>
+                                <p class="en">Enter a Minecraft server IP address to verify its operational status.</p>
+                            </div>
+
+                            <div id="state-loading" class="spinner-telemetry hidden">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <p class="es">Consultando la API externa...</p>
+                                <p class="en">Querying external API endpoints...</p>
+                            </div>
+
+                            <div id="state-success" class="hidden">
+                                <div class="result-header">
+                                    <h3 id="res-hostname">-</h3>
+                                    <span id="res-status-badge" class="status-badge">-</span>
+                                </div>
+                                
+                                <div class="result-grid">
+                                    <div class="result-row">
+                                        <strong class="es">IP / Dirección:</strong><strong class="en">IP / Connection:</strong>
+                                        <span id="res-ip">-</span>
+                                    </div>
+                                    <div class="result-row">
+                                        <strong class="es">Jugadores:</strong><strong class="en">Players:</strong>
+                                        <span id="res-players">-</span>
+                                    </div>
+                                    <div class="result-row">
+                                        <strong class="es">Versión:</strong><strong class="en">Version:</strong>
+                                        <span id="res-version">-</span>
+                                    </div>
+                                </div>
+
+                                <div class="result-motd">
+                                    <strong class="es">MOTD (Mensaje):</strong><strong class="en">MOTD (Message):</strong>
+                                    <div id="res-motd-clean" class="motd-clean">-</div>
+                                </div>
+                            </div>
+
+                            <p id="state-error" class="error-msg hidden"></p>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section id="terminal" class="tab-content">
+                    <h2 class="es"><i class="fa-solid fa-terminal"></i> Consola Operacional Avanzada (POSIX-like)</h2>
+                    <h2 class="en"><i class="fa-solid fa-terminal"></i> Advanced System Shell Bash Terminal</h2>
+                    <p class="comment es">// Comandos: ls, cd, cat, pwd, whoami, htop, curl, mcstatus <ip>, uptime, clear, neofetch, help</p>
+                    <p class="comment en">// Commands: ls, cd, cat, pwd, whoami, htop, curl, mcstatus <ip>, uptime, clear, neofetch, help</p>
+                    
+                    <div class="terminal-box">
+                        <div class="terminal-output" id="terminalOutput">
+                            <div>DaBoCraft Advanced Secure Shell OS v2.4.2 (x86_64-pc-linux-gnu)</div>
+                            <div>Welcome! Core virtualization environment initialized. Type 'help' for diagnostics.</div>
+                            <div>&nbsp;</div>
+                        </div>
+                        <div class="terminal-quick-tags">
+                            <span onclick="runQuickCommand('help')">help</span>
+                            <span onclick="runQuickCommand('neofetch')">neofetch</span>
+                            <span onclick="runQuickCommand('htop')">htop</span>
+                            <span onclick="runQuickCommand('mcstatus inmortalcraft.lat')">mcstatus inmortalcraft.lat</span>
+                            <span onclick="runQuickCommand('curl nohello.net')">curl nohello</span>
+                            <span onclick="runQuickCommand('clear')">clear</span>
+                        </div>
+                        <div class="terminal-input-line">
+                            <span class="prompt">guest@dabocraft.dev:<span id="terminalPath">~</span>$</span>
+                            <input type="text" id="terminalInput" autocomplete="off" autofocus placeholder="Escribe un comando..." onkeydown="handleTerminalKeyPress(event)">
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contact" class="tab-content">
+                    <h2><i class="fa-solid fa-envelope-shield"></i> secure_communication_channels.url</h2>
+                    
+                    <div class="contact-list">
+                        <div class="contact-card-item email-mask-zone">
+                            <div class="contact-icon-wrapper"><i class="fa-solid fa-user-shield"></i></div>
+                            <div class="contact-card-details">
+                                <span class="tag-alert es"><i class="fa-solid fa-triangle-exclamation"></i> AVISO: MÁSCARA DE PROTECCIÓN DE PRIVACIDAD (EMAIL MASK)</span>
+                                <span class="tag-alert en"><i class="fa-solid fa-triangle-exclamation"></i> WARNING: ANTI-SPAM EMAIL RELAY SHIELD (EMAIL MASK)</span>
+                                <h3>b7krhn2ce@mozmail.com</h3>
+                                <p class="es">Este buzón de destino público utiliza una máscara criptográfica gestionada por los sistemas alternativos de Mozilla (Firefox Relay) para neutralizar rastreadores web y spam masivo. Cualquier comunicación enviada a este alias filtrará de forma automática y transparente correos limpios hacia mi cuenta personal.</p>
+                                <p class="en">This public gateway address processes incoming traffic via an anti-spam relay mask managed by Mozilla (Firefox Relay). This guarantees structural inbox shielding against data harvesting bots while routing clean developer correspondence directly into my private server.</p>
+                            </div>
+                        </div>
+
+                        <a href="https://github.com/dabocraft" target="_blank" class="contact-item">
+                            <i class="fa-brands fa-github text-emerald"></i> <span>github.com/dabocraft</span>
+                        </a>
+                        <a href="https://discord.com/users/713021827126919198" target="_blank" class="contact-item">
+                            <i class="fa-brands fa-discord text-blue"></i> <span>Perfil Oficial de Desarrollador de Discord</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@dabocraft" target="_blank" class="contact-item">
+                            <i class="fa-brands fa-tiktok text-purple"></i> <span>Canal Educativo / Feed de TikTok</span>
+                        </a>
+                    </div>
+
+                    <div class="warning-box">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <div>
+                            <p class="es"><strong>Regla Estricta de Comunicación Directa:</strong> Al abrir un chat privado (DM) para consultas o auditorías de red, por favor ve directo al grano exponiendo toda tu consulta detallada en el primer mensaje. Evita iniciar con saludos mudos tipo "hola" o "¿estás ahí?" respetando rigurosamente el manifiesto técnico de interoperabilidad <a href="https://nohello.net" target="_blank">nohello.net</a>.</p>
+                            <p class="en"><strong>Strict Direct Message Protocol:</strong> When reaching out via DMs for system inquiries or network diagnostics, state your full technical requirement right inside the opening package. Do not say just "hello" or "quick question" and wait for a response, as specified on the <a href="https://nohello.net" target="_blank">nohello.net</a> communication framework.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <div class="ide-footer">
+            <div class="footer-left">
+                <span><i class="fa-solid fa-code-branch text-emerald"></i> production-main</span>
+                <span><i class="fa-solid fa-circle-check text-emerald"></i> Nodes Engine Stack: Online</span>
+            </div>
+            <div class="footer-center">
+                <i class="fa-solid fa-music text-emerald"></i> Now Playing: <span class="scroll-text">Imagine Dragons - Sharks 🦈</span>
+            </div>
+            <div class="footer-right">
+                <span>Encoding: UTF-8</span>
+                <span>Environment: SysOps Core Linux</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.file-item').forEach(item => item.classList.remove('active'));
+            
+            const targetSection = document.getElementById(tabId);
+            if(targetSection) targetSection.classList.add('active');
+            
+            const targetListItem = document.getElementById('tab-' + tabId);
+            if(targetListItem) targetListItem.classList.add('active');
+        }
+
+        function toggleLanguage() {
+            const b = document.body;
+            b.classList.toggle('lang-es');
+            b.classList.toggle('lang-en');
+        }
+
+        // =======================================================
+        // LÓGICA DE CONTROL DE LA HERRAMIENTA REAL DE MINECRAFT
+        // =======================================================
+        document.getElementById('btn-check').addEventListener('click', checkServer);
+        document.getElementById('server-ip').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') checkServer();
+        });
+
+        async function checkServer() {
+            const ipInput = document.getElementById('server-ip').value.trim();
+            const card = document.getElementById('result-card');
+            
+            const stateIdle = document.getElementById('state-idle');
+            const stateLoading = document.getElementById('state-loading');
+            const stateSuccess = document.getElementById('state-success');
+            const stateError = document.getElementById('state-error');
+
+            if (!ipInput) return;
+
+            // Transición visual a estado cargando
+            card.className = "api-result-card loading-status";
+            stateIdle.classList.add('hidden');
+            stateSuccess.classList.add('hidden');
+            stateError.classList.add('hidden');
+            stateLoading.classList.remove('hidden');
+
+            try {
+                const response = await fetch(`https://api.mcsrvstat.us/2/${ipInput}`);
+                if (!response.ok) throw new Error();
+                
+                const data = await response.json();
+                stateLoading.classList.add('hidden');
+
+                if (data.online) {
+                    card.className = "api-result-card online-status";
+                    document.getElementById('res-hostname').textContent = data.hostname || ipInput;
+                    
+                    const badge = document.getElementById('res-status-badge');
+                    badge.className = "status-badge online";
+                    badge.innerHTML = '<i class="fas fa-check-circle"></i> Online';
+
+                    document.getElementById('res-ip').textContent = `${data.ip}:${data.port}`;
+                    document.getElementById('res-players').textContent = `${data.players.online} / ${data.players.max}`;
+                    document.getElementById('res-version').textContent = data.version || 'Desconocida';
+                    
+                    const motdText = data.motd && data.motd.clean ? data.motd.clean.join('\n') : 'Sin descripción';
+                    document.getElementById('res-motd-clean').textContent = motdText;
+
+                    stateSuccess.classList.remove('hidden');
+                } else {
+                    card.className = "api-result-card offline-status";
+                    document.getElementById('res-hostname').textContent = ipInput;
+                    
+                    const badge = document.getElementById('res-status-badge');
+                    badge.className = "status-badge offline";
+                    badge.innerHTML = '<i class="fas fa-times-circle"></i> Offline';
+
+                    document.getElementById('res-ip').textContent = ipInput;
+                    document.getElementById('res-players').textContent = '0 / 0';
+                    document.getElementById('res-version').textContent = '-';
+                    document.getElementById('res-motd-clean').textContent = 'No se pudo establecer conexión con el host de red local o proxy.';
+
+                    stateSuccess.classList.remove('hidden');
+                }
+            } catch (err) {
+                card.className = "api-result-card offline-status";
+                stateLoading.classList.add('hidden');
+                stateError.textContent = "Error de red al intentar resolver los paquetes de telemetría.";
+                stateError.classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // SISTEMA DE CONSOLA BASH VIRTUAL (SHELL CORES)
+        // ==========================================
+        let currentDirectory = '~';
+        const termOutput = document.getElementById('terminalOutput');
+        const termInput = document.getElementById('terminalInput');
+        const termPathVisual = document.getElementById('terminalPath');
+
+        const virtualFS = {
+            '~': { type: 'dir', contents: ['profile.md', 'infrastructure', 'communities'] },
+            '~/infrastructure': { type: 'dir', contents: ['minecraft_networks.json', 'local_homelab.log'] },
+            '~/communities': { type: 'dir', contents: ['discord_permissions.matrix', 'qa_auditing.json'] }
+        };
+
+        const fileContents = {
+            'profile.md': "### DaBoCraft Core profile\nSystems Configurator specializing in automated deployments, high performance architectures for Minecraft clusters, and fully hardened Discord community structures.",
+            'minecraft_networks.json': "{\n  \"live_node\": \"inmortalcraft.lat\",\n  \"proxy_layer\": \"Velocity High-Availability Proxy\",\n  \"server_software\": \"PaperMC Engine\",\n  \"permission_db\": \"LuckPerms (SQL Backend Stack Deployment)\"\n}",
+            'local_homelab.log': "[STAGE-LOG] Local Environment running stable on custom Linux Server box.\n[STAGE-LOG] Management system managed fluidly via Crafty Controller isolated containers.",
+            'discord_permissions.matrix': "=================================================\nDISCORD PERMISSION TREE HARDENING PROTOCOL LOADED\n=================================================\n- Webhook injections: REMOVED & BALANCED\n- Moderation Orchestration Stack: Dyno / Carl-bot / Koya Engines\n- Custom Layer: Custom internal automated engines via Node.js architectures (*vibecodeados*).",
+            'qa_auditing.json': "{\n  \"unit_testing_group\": \"Kilo QA Team Cluster\",\n  \"role_assignment\": \"QA Director\",\n  \"vulnerability_prevention_status\": \"Fully Scanned / Verified Secure\"\n}"
+        };
+
+        function handleTerminalKeyPress(e) {
+            if (e.key === 'Enter') {
+                const cmdString = termInput.value.trim();
+                termInput.value = '';
+                executeShellCommand(cmdString);
+            }
+        }
+
+        function runQuickCommand(cmd) {
+            executeShellCommand(cmd);
+        }
+
+        async function executeShellCommand(rawCmd) {
+            if (!rawCmd) return;
+            
+            termOutput.innerHTML += `<div><span class="prompt">guest@dabocraft.dev:${currentDirectory}$</span> ${rawCmd}</div>`;
+            
+            const args = rawCmd.split(' ').filter(t => t.length > 0);
+            const baseCommand = args[0].toLowerCase();
+
+            switch(baseCommand) {
+                case 'help':
+                    termOutput.innerHTML += `<div><strong>Available POSIX-like commands:</strong><br>` +
+                                            `• <code>ls [-la]</code> - List directory contents.<br>` +
+                                            `• <code>cd [dir]</code> - Switch workspace path.<br>` +
+                                            `• <code>pwd</code> - Output active operating directory location.<br>` +
+                                            `• <code>cat [file]</code> - Stream file contents payload.<br>` +
+                                            `• <code>mcstatus [ip]</code> - <span style="color:#10b981;">[REAL]</span> Query server metrics directly over public network API.<br>` +
+                                            `• <code>neofetch</code> - Environment summary variables overview.<br>` +
+                                            `• <code>htop</code> - Process threads resource simulator monitor.<br>` +
+                                            `• <code>curl nohello.net</code> - Render communication framework manifesto.<br>` +
+                                            `• <code>whoami</code> / <code>uptime</code> / <code>clear</code></div>`;
+                    break;
+                
+                case 'ls':
+                    const showAll = args.includes('-la') || args.includes('-a');
+                    const dirObj = virtualFS[currentDirectory];
+                    if (dirObj) {
+                        let result = "";
+                        if (showAll) result += `<span class="text-blue">.</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue">..</span><br>`;
+                        dirObj.contents.forEach(item => {
+                            result += !item.includes('.') ? `<span class="text-blue" style="font-weight:bold;"><i class="fa-solid fa-folder"></i> ${item}/</span>&nbsp;&nbsp;&nbsp;&nbsp;` : `<span><i class="fa-solid fa-file-code"></i> ${item}</span>&nbsp;&nbsp;&nbsp;&nbsp;`;
+                        });
+                        termOutput.innerHTML += `<div>${result}</div>`;
+                    }
+                    break;
+
+                case 'pwd':
+                    termOutput.innerHTML += `<div>/home/dabocraft/portfolio/${currentDirectory.replace('~', '')}</div>`;
+                    break;
+
+                case 'cd':
+                    const targetDir = args[1];
+                    if (!targetDir || targetDir === '~') { currentDirectory = '~'; }
+                    else if (targetDir === '..') { if (currentDirectory !== '~') currentDirectory = '~'; }
+                    else {
+                        let lookPath = currentDirectory === '~' ? `~/${targetDir}` : `${currentDirectory}/${targetDir}`;
+                        if (virtualFS[lookPath]) currentDirectory = lookPath;
+                        else termOutput.innerHTML += `<div class="text-red">bash: cd: ${targetDir}: No such directory.</div>`;
+                    }
+                    termPathVisual.innerText = currentDirectory;
+                    break;
+
+                case 'cat':
+                    const targetFile = args[1];
+                    if (!targetFile) termOutput.innerHTML += `<div class="text-red">cat: missing operand file target.</div>`;
+                    else if (fileContents[targetFile] && virtualFS[currentDirectory].contents.includes(targetFile)) {
+                        termOutput.innerHTML += `<div style="white-space: pre-wrap; background: rgba(255,255,255,0.03); padding: 8px; border-radius:4px; border-left: 2px solid #10b981; color: #a7f3d0;">${fileContents[targetFile]}</div>`;
+                    } else {
+                        termOutput.innerHTML += `<div class="text-red">cat: ${targetFile}: No such file.</div>`;
+                    }
+                    break;
+
+                case 'mcstatus':
+                    const targetIp = args[1];
+                    if(!targetIp) {
+                        termOutput.innerHTML += `<div class="text-red">Usage: mcstatus <server-ip> (Ej: mcstatus inmortalcraft.lat)</div>`;
+                    } else {
+                        termOutput.innerHTML += `<div>[NET] Initiating connection sync handshake to api.mcsrvstat.us...</div>`;
+                        try {
+                            const res = await fetch(`https://api.mcsrvstat.us/3/${targetIp}`);
+                            const data = await res.json();
+                            if(data.online) {
+                                termOutput.innerHTML += `<div style="color:#10b981;"><strong>STATUS: ONLINE</strong><br>• IP Address: ${data.ip}:${data.port}<br>• Core Version: ${data.version}<br>• Active Players: ${data.players.online}/${data.players.max}<br>• MOTD: ${data.motd.clean ? data.motd.clean.join(' | ') : 'None'}</div>`;
+                            } else {
+                                termOutput.innerHTML += `<div class="text-red">STATUS: OFFLINE / TIMEOUT (Connection rejected by target host socket).</div>`;
+                            }
+                        } catch(e) {
+                            termOutput.innerHTML += `<div class="text-red">Network pipeline exception error. Failed to complete frame processing.</div>`;
+                        }
+                    }
+                    break;
+
+                case 'neofetch':
+                    termOutput.innerHTML += `<div style="display: flex; gap: 20px; align-items: center; color: #cbd5e1; background: rgba(16,185,129,0.02); padding: 10px; border-radius: 6px; border: 1px solid #262626;"><div style="color: #10b981; font-weight: bold; font-size: 0.75rem;">/\\_/\\<br>( o.o )<br> &gt; ^ &lt;<br>/ | \\<br>(__|_|__)</div><div><span style="color: #10b981; font-weight: bold;">dabocraft@sysadmin-environment</span><br>---------------------------------------<br><strong>Host OS:</strong> Ubuntu Server Linux Cluster<br><strong>Dev Tooling:</strong> VS Code / Git / GitHub Copilot API<br><strong>Pipeline Focus:</strong> Velocity / PaperMC / Discord Permissions Matrix / Python scripts<br><strong>Audio Engine:</strong> Imagine Dragons - Sharks 🦈</div></div>`;
+                    break;
+
+                case 'htop':
+                    termOutput.innerHTML += `<div style="background:#000; padding:10px; border-radius:6px; border: 1px solid #334155; font-size:0.8rem;"><span style="color:#ef4444;">CPU1  [|||||||||||||||||||||||||                    56.2%]</span><br><span style="color:#3b82f6;">CPU2  [||||||||||||                                 24.1%]</span><br><span style="color:#10b981;">Mem   [|||||||||||||||||||||||               6.42G/16.0G]</span><br><br><table><tr style="color:#94a3b8; text-align:left;"><th>PID</th><th>USER</th><th>CPU%</th><th>MEM%</th><th>COMMAND</th></tr><tr><td>4102</td><td>dabo</td><td>48.2</td><td>24.5</td><td>java -Xms8G -Xmx8G -jar paper.jar --nogui</td></tr><tr><td>5091</td><td>dabo</td><td>6.1</td><td>2.4</td><td>node inmortalbot.js (Vibecode Core Shard)</td></tr><tr><td>3012</td><td>root</td><td>1.2</td><td>3.1</td><td>/usr/share/crafty/crafty-controller-service</td></tr></table></div>`;
+                    break;
+
+                case 'curl':
+                    if (args[1] === 'nohello.net' || args[1] === 'nohello') {
+                        termOutput.innerHTML += `<div style="background: rgba(56,189,248,0.04); color:#38bdf8; border: 1px solid rgba(56,189,248,0.2); padding: 12px; border-radius: 6px;"><strong>[HTTP/1.1 200 OK - dump from nohello.net]</strong><br>Please stop sending plain greetings like "Hello" or "Hi" in private channels. It forces receivers to wait for the real request. State your full question or technical issue immediately. Let's make communications asynchronous!</div>`;
+                    } else {
+                        termOutput.innerHTML += `<div class="text-red">curl: Connection refused. Try: "curl nohello.net"</div>`;
+                    }
+                    break;
+
+                case 'whoami': termOutput.innerHTML += `<div>guest_developer@dabocraft.dev (Session: Read & Execute Privileges)</div>`; break;
+                case 'uptime': termOutput.innerHTML += `<div>Up: 24 days, 11 hours, 42 minutes. Host average factors: 0.12, 0.08, 0.02.</div>`; break;
+                case 'clear': termOutput.innerHTML = ''; break;
+                default: termOutput.innerHTML += `<div class="text-red">shell: command terminal parsing exception: unknown command "${baseCommand}". Type "help" for bindings.</div>`; break;
+            }
+            termOutput.scrollTop = termOutput.scrollHeight;
+        }
+    </script>
+</body>
+</html>
